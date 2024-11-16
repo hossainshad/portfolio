@@ -4,7 +4,7 @@ var i = 0;
 var round = 1;
 var buttons = ['red','green','blue','yellow'];
 
-
+$("body").prepend('<button id="startButton" class="start-btn">Start Game</button>');
 if (!gamestatus){
     $(document).one("keydown",function(event){
         gamestatus = true;
@@ -14,6 +14,14 @@ if (!gamestatus){
     })
 
 }
+$("#startButton").on("click", function() {
+    if (!gamestatus) {
+        gamestatus = true;
+        $('h1').text(`Level ${round}`);
+        $('#startButton').addClass('hide');
+        pushRandom();
+    }
+});
 
 $(".btn").on("click",function(){
     var clickedButton = $(this).attr('id');
@@ -70,6 +78,7 @@ function resetGame(){
     gamestatus = false;
     i = 0;
     round = 1;
+    $('#startButton').removeClass('hide'); 
     if (!gamestatus){
     $(document).one("keydown",function(event){
         gamestatus = true;
