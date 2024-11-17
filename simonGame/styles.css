@@ -79,6 +79,6 @@ body {
 /* Show button only on mobile devices */
 @media (max-width: 1200px) {
   .start-btn {
-      display: block;
+      display: block;   
   }
 }
